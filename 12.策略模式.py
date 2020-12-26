@@ -32,10 +32,10 @@ class Context:
 
 
 if __name__ == '__main__':
-    data = "[....]"
+    d1 = "[....]"
     s1 = FastStrategy()
     s2 = SlowStrategy()
-    context = Context(s1, data)
+    context = Context(s1, d1)
     context.do_strategy()
     context.set_strategy(s2)
     context.do_strategy()
