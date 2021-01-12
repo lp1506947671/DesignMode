@@ -90,7 +90,7 @@ class MIFactory(PhoneFactory):
         return Android()
 
 
-class HuaweiFactory(PhoneFactory):
+class HuaWeiFactory(PhoneFactory):
     def make_shell(self):
         return SmallShell()
 
@@ -134,5 +134,6 @@ def make_phone(factory):
     return Phone(cpu, os, shell)
 
 
-p1 = make_phone(MIFactory())
-p1.show_info()
+if __name__ == '__main__':
+    p1 = make_phone(MIFactory())
+    p1.show_info()

@@ -4,6 +4,7 @@
 from abc import abstractmethod, ABCMeta
 
 
+# 产品
 class Player:
     def __init__(self, face=None, body=None, arm=None, leg=None):
         self.face = face
@@ -15,6 +16,7 @@ class Player:
         return "%s,%s,%s,%s" % (self.face, self.body, self.arm, self.leg)
 
 
+# -----抽象创建者-----
 class PlayerBuilder(metaclass=ABCMeta):
     @abstractmethod
     def build_body(self):
@@ -33,6 +35,7 @@ class PlayerBuilder(metaclass=ABCMeta):
         pass
 
 
+# -----具体创建者-----
 class SexyGirlBuilder(PlayerBuilder):
     def __init__(self):
         self.player = Player()
@@ -67,8 +70,10 @@ class MonsterBuilder(PlayerBuilder):
         self.player.arm = "不好的腿"
 
 
+# -----指挥者-----
 class PlayerDirector:
-    def build_player(self, builder):
+    @staticmethod
+    def build_player(builder):
         builder.build_body()
         builder.build_face()
         builder.build_arm()
@@ -76,8 +81,9 @@ class PlayerDirector:
         return builder.player
 
 
-# client
-builder = SexyGirlBuilder()
-director = PlayerDirector()
-p = director.build_player(builder)
-print(p)
+if __name__ == '__main__':
+    # client
+    builder1 = SexyGirlBuilder()
+    director = PlayerDirector()
+    p = director.build_player(builder1)
+    print(p)
