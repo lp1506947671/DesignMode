@@ -10,11 +10,11 @@ class Window(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def repaint(self):
+    def stop(self):
         pass
 
     @abstractmethod
-    def stop(self):
+    def repaint(self):
         pass
 
     def run(self):
@@ -43,4 +43,5 @@ class MyWindow(Window):
 
 
 if __name__ == '__main__':
+    # 执行 python 13.模板方法.py
     MyWindow("Hello...").run()

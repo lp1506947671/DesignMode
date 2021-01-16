@@ -3,6 +3,7 @@
 from abc import ABCMeta, abstractmethod
 
 
+# 抽象实体
 class Subject(metaclass=ABCMeta):
     @abstractmethod
     def get_content(self):
@@ -13,6 +14,7 @@ class Subject(metaclass=ABCMeta):
         pass
 
 
+# 实体
 class RealSubject(Subject):
     def __init__(self, filename):
         self.filename = filename
@@ -29,6 +31,7 @@ class RealSubject(Subject):
         f.close()
 
 
+# 虚拟代理
 class VirtualProxy(Subject):
     def __init__(self, filename):
         self.filename = filename
@@ -43,6 +46,7 @@ class VirtualProxy(Subject):
         pass
 
 
+# 保护代理
 class ProtectedProxy(Subject):
     def __init__(self, filename):
         self.subj = RealSubject(filename)
@@ -55,11 +59,11 @@ class ProtectedProxy(Subject):
 
 
 if __name__ == '__main__':
-    # subj1=RealSubject("new")
-    # subj1.get_content()
-    #
-    # subj2 = ProtectedProxy("new")
-    # print(subj2.set_content("a"))
+    subj1 = RealSubject("new")
+    print(subj1.get_content())
 
-    subj3 = VirtualProxy("new")
-    print(subj3.get_content())
+    subj2 = VirtualProxy("new")
+    print(subj2.get_content())
+
+    subj3 = ProtectedProxy("new")
+    print(subj3.set_content("a"))

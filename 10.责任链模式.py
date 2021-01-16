@@ -44,6 +44,7 @@ class ProjectDirector(Handler):
             self.next.handle_leave(day)
 
 
+# 客户端
 if __name__ == '__main__':
     a = ProjectDirector()
     a.handle_leave(10)

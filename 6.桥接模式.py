@@ -5,6 +5,7 @@ from abc import ABCMeta, abstractmethod
 
 # 抽象者
 class Shape(metaclass=ABCMeta):
+    # 聚合关联关系:与颜色进行关联
     def __init__(self, color):
         self.color = color
 
@@ -36,7 +37,6 @@ class Color(metaclass=ABCMeta):
 
 
 # 具体实现者
-
 class Red(Color):
     def paint(self, shape):
         print("红色的%s" % shape.name)
@@ -48,5 +48,5 @@ class Black(Color):
 
 
 if __name__ == '__main__':
-    shape = Rectangle(Red())
-    shape.draw()
+    rect = Rectangle(Red())
+    rect.draw()

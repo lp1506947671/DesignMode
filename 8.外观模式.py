@@ -4,10 +4,12 @@
 
 class Cpu:
 
-    def run(self):
+    @staticmethod
+    def run():
         print("CPU开始运行")
 
-    def stop(self):
+    @staticmethod
+    def stop():
         print("CPU停止运行")
 
 

@@ -11,12 +11,12 @@ class Strategy(metaclass=ABCMeta):
 
 class FastStrategy(Strategy):
     def execute(self, data):
-        print("用较快的策略处理%s", data)
+        print("用较快的策略处理%s"%data)
 
 
 class SlowStrategy(Strategy):
     def execute(self, data):
-        print("用较慢的策略处理%s", data)
+        print("用较慢的策略处理%s"% data)
 
 
 class Context:
